@@ -1,0 +1,18 @@
+.chat__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: rgba(3, 13, 49, 1);
+}
+.chat__form__input {
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 60px;
+  padding: 13px 15px;
+  transition: border-color 0.5s ease;
+}
+
+.chat__form__input:focus {
+  border: 1px solid #0038ff;
+}

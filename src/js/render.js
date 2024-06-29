@@ -63,6 +63,7 @@ function renderAnswer(message) {
 
     setTimeout(() => {
       innerChatMessage.classList.add("visible");
+      scrollToBottom();
     }, 100);
   }, 100);
 }
@@ -82,6 +83,7 @@ function renderMessage(message) {
 
     setTimeout(() => {
       chatMessage.classList.add("visible");
+      scrollToBottom();
     }, 100);
   }, 100);
 }
@@ -99,6 +101,7 @@ function renderButtons(step, buttons) {
     const stepElement = document.getElementById(`step${step}`);
     setTimeout(() => {
       stepElement.classList.add("chat__button__wraper--visible");
+      scrollToBottom();
     }, 100);
   });
 }
@@ -106,16 +109,20 @@ function renderButtons(step, buttons) {
 function renderForm() {
   const chatContainer = document.getElementById("chatContainer");
   chatContainer.innerHTML += `
-    <form onsubmit="submitForm(event)">
-      <input type="text" id="firstName" placeholder="Ім'я" required>
-      <input type="text" id="lastName" placeholder="Прізвище" required>
-      <input type="email" id="email" placeholder="Пошта" required>
-      <input type="tel" id="phone" placeholder="Телефон" pattern="[0-9]*" inputmode="numeric" required>
-      <button type="submit">Надіслати</button>
+    <form class="chat__form" onsubmit="submitForm(event)">
+      <input class="chat__form__input" type="text" id="firstName" placeholder="Ім'я" required>
+      <input class="chat__form__input" type="text" id="lastName" placeholder="Прізвище" required>
+      <input class="chat__form__input" type="email" id="email" placeholder="Пошта" required>
+      <input class="chat__form__input" type="tel" id="phone" placeholder="Телефон" pattern="[0-9]*" inputmode="numeric" required>
+      <button class="chat__form__input" type="submit">Надіслати</button>
     </form>`;
-
+  scrollToBottom();
   const phoneInput = document.getElementById("phone");
   phoneInput.addEventListener("input", function () {
     phoneInput.value = phoneInput.value.replace(/\D/g, "");
   });
+}
+function scrollToBottom() {
+  const chatContainer = document.getElementById("chatContainer");
+  chatContainer.scrollTop = chatContainer.scrollHeight;
 }
