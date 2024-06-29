@@ -10,9 +10,8 @@ function renderTime() {
   });
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
   renderTime();
 
-  setInterval(renderTime, 1000);
+  setInterval(renderTime, 100);
 });

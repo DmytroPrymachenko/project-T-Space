@@ -1,11 +1,17 @@
-function renderMessage(message) {
-  const now = new Date();
-  const hours = now.getHours().toString().padStart(2, "0");
-  const minutes = now.getMinutes().toString().padStart(2, "0");
-  const time = `${hours}:${minutes}`;
-
+function renderAnswer(message) {
   const chatContainer = document.getElementById("chatContainer");
-  chatContainer.innerHTML += `<div class="chat__message"><p>${message}</p><span>${time}</span></div>`;
+  chatContainer.innerHTML += `<div class="chat__message">
+  <p>${message}</p>
+  <span class="currentTime"></span>
+  </div>`;
+}
+
+function renderMessage(message) {
+  const chatContainer = document.getElementById("chatContainer");
+  chatContainer.innerHTML += `<div class="chat__message">
+  <p>${message}</p>
+  <span class="currentTime"></span>
+  </div>`;
 }
 
 function renderButtons(step, buttons) {
@@ -16,6 +22,12 @@ function renderButtons(step, buttons) {
   });
   buttonsHtml += `</div>`;
   chatContainer.innerHTML += buttonsHtml;
+
+  requestAnimationFrame(() => {
+    document
+      .getElementById(`step${step}`)
+      .classList.add("chat__button__wraper--visible");
+  });
 }
 
 function renderForm() {
@@ -25,11 +37,40 @@ function renderForm() {
       <input type="text" id="firstName" placeholder="Ім'я" required>
       <input type="text" id="lastName" placeholder="Прізвище" required>
       <input type="email" id="email" placeholder="Пошта" required>
-            <input type="tel" id="phone" placeholder="Телефон" pattern="[0-9]*" inputmode="numeric" required>
+      <input type="tel" id="phone" placeholder="Телефон" pattern="[0-9]*" inputmode="numeric" required>
       <button type="submit">Надіслати</button>
     </form>`;
+
   const phoneInput = document.getElementById("phone");
-  phoneInput.addEventListener("input", function (event) {
+  phoneInput.addEventListener("input", function () {
     phoneInput.value = phoneInput.value.replace(/\D/g, "");
   });
+}
+// Рендер початкових повідомлень
+document.addEventListener("DOMContentLoaded", () => {
+  renderInitialMessages();
+});
+
+function renderInitialMessages() {
+  const messages = [
+    "Запускаємо курс з арбітражу трафіку! Отримайте цінні знання від експертів. Поглиблене вивчення сучасних стратегій.",
+    "Приєднуйтесь до нашого нового курсу! Інтерактивні заняття, практичні завдання, сертифікат. Відмінна можливість підвищити кваліфікацію.",
+    "Учасники отримають доступ до ексклюзивних матеріалів, консультацій та мережі контактів. Вивчайте нові тенденції арбітражу трафіку.",
+    "Хочете дізнатися більше?",
+  ];
+
+  const chatContainer = document.getElementById("chatContainer");
+
+  messages.forEach((message, index) => {
+    chatContainer.innerHTML += `
+      <div class="chat__message">
+        <p>${message}</p>
+      <span class="currentTime"></span>
+      </div>`;
+  });
+
+  renderButtons(1, [
+    { text: "Так", response: "Так" },
+    { text: "Ні", response: "Ні" },
+  ]);
 }

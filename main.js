@@ -16,6 +16,7 @@ function handleResponse(response, step) {
 
   if (currentStep === 1) {
     if (response === "Ні") {
+      renderAnswer(response);
       renderMessage("Дякую за вашу відповідь, чекаємо на ваше повернення");
       return;
     }
@@ -24,6 +25,7 @@ function handleResponse(response, step) {
   currentStep++;
 
   if (currentStep === 2) {
+    renderAnswer(response);
     renderMessage("Чи був у вас досвід пов'язаний із Арбітражем трафіку?");
     renderButtons(2, [
       { text: "Так", response: "Так" },
@@ -34,6 +36,7 @@ function handleResponse(response, step) {
 
   if (currentStep === 3) {
     userData.interestInArbitrage = response;
+    renderAnswer(response);
     renderMessage("Скільки часу ви могли б приділяти на день?");
     renderButtons(3, [
       { text: "Одна година", response: "Одна година" },
@@ -44,6 +47,7 @@ function handleResponse(response, step) {
 
   if (currentStep === 4) {
     userData.timeCommitment = response;
+    renderAnswer(response);
     renderMessage(
       "Дякую! Наша компанія дуже зацікавлена ​​вами, для подальшої підтримки зв'язку, будь ласка, заповніть форму."
     );
