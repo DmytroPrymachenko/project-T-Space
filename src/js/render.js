@@ -116,7 +116,7 @@ function renderForm() {
 <div id="lastNameError" class="error-message"></div>
 <input class="chat__form__input" type="email" id="email" placeholder="Пошта" required>
 <div id="emailError" class="error-message"></div>
-      <input class="chat__form__input" type="tel" id="phone" placeholder="Телефон" pattern="[0-9]*" inputmode="numeric" required>
+      <input class="chat__form__input" type="tel" id="phone" placeholder="Телефон" pattern="\+380[0-9]{9}" inputmode="numeric" required>
       <div id="phoneError" class="error-message"></div>
       <button class="chat__form__button" type="submit">Надіслати</button>
     </form>`;
@@ -135,8 +135,10 @@ function renderForm() {
     const firstName = document.getElementById("firstName");
     const firstNameError = document.getElementById("firstNameError");
     if (firstName.value.length < 2) {
+      removeMessage(firstNameError);
       firstNameError.textContent = "Ім'я не може бути менше за 2 символів";
     } else if (firstName.value.length > 13) {
+      removeMessage(firstNameError);
       firstNameError.textContent = "Ім'я не може бути більше 13 символів";
     } else {
       firstNameError.classList.add("message-true");
@@ -148,8 +150,10 @@ function renderForm() {
     const lastName = document.getElementById("lastName");
     const lastNameError = document.getElementById("lastNameError");
     if (lastName.value.length < 2) {
+      removeMessage(lastNameError);
       lastNameError.textContent = "Прізвище не може бути менше за 2 символів";
     } else if (lastName.value.length > 13) {
+      removeMessage(lastNameError);
       lastNameError.textContent = "Прізвище не може бути більше 13 символів";
     } else {
       lastNameError.classList.add("message-true");
@@ -160,6 +164,7 @@ function renderForm() {
     const email = document.getElementById("email");
     const emailError = document.getElementById("emailError");
     if (!email.validity.valid) {
+      removeMessage(emailError);
       emailError.textContent = "Введіть коректну адресу електронної пошти";
     } else {
       emailError.classList.add("message-true");
@@ -173,8 +178,10 @@ function renderForm() {
     const phoneError = document.getElementById("phoneError");
 
     if (!trimmedValue.startsWith("+380")) {
+      removeMessage(phoneError);
       phoneError.textContent = "Номер телефону має починатися з +380";
     } else if (trimmedValue.length !== 13) {
+      removeMessage(phoneError);
       phoneError.textContent = "Номер телефону повинен складати 13 символів";
     } else {
       phoneInput.value = trimmedValue;
@@ -182,6 +189,9 @@ function renderForm() {
       phoneError.textContent = "Ваш номер телефону Супер";
     }
   });
+}
+function removeMessage(error) {
+  error.classList.remove("message-true");
 }
 
 function scrollToBottom() {
