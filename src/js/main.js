@@ -65,5 +65,5 @@ function submitForm(event) {
 
   console.log(userData);
   localStorage.setItem("userData", JSON.stringify(userData));
-  window.location.href = "./success/success.html";
+  window.location.href = "./src/pages/success/success.html";
 }
