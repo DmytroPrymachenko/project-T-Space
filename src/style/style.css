@@ -99,3 +99,24 @@ input {
   display: flex;
   justify-content: flex-end;
 }
+
+.message__animation {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.message__animation--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.answer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.answer .tail {
+  transform: scaleX(-1);
+  left: 48px;
+}

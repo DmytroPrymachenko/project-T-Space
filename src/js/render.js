@@ -40,10 +40,15 @@ function renderInitialMessages() {
 // Рендер повідомлень після відповідей
 function renderAnswer(message) {
   const chatContainer = document.getElementById("chatContainer");
-  chatContainer.innerHTML += `<div class="chat__message">
+  chatContainer.innerHTML += `<div class="answer">
+  <div class="chat__message ">
   <p>${message}</p>
    ${currentTime()}
-  ${tailChat}
+   
+   ${tailChat}
+  
+
+  </div>
   </div>`;
 }
 
