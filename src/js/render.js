@@ -52,8 +52,9 @@ function renderAnswer(message) {
     chatMessage.classList.add("answer");
     chatMessage.innerHTML = `<div class="chat__message">
     <p>${message}</p>
-    ${currentTime()}
-    ${tailChat}
+    <div class="answer__time">${currentTime()}
+    ${tailChat}</div>
+  
     </div>
   `;
     chatContainer.appendChild(chatMessage);
