@@ -1,13 +1,70 @@
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <header class="chat__header">
+      <div class="container">
+        <div>
+          <div>
+            <span class="chat__header-title">T-Space</span>
+            <img
+              src="./images/svg/check.svg"
+              alt="T-Space check"
+              class="chat__header-img"
+            />
+          </div>
+          <span class="chat__header-text">бот</span>
+        </div>
+        <div>
+          <img
+            src="./images/svg/logo.svg"
+            alt="T-Space check"
+            class="chat__header-logo"
+          />
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="chat__container" id="chatContainer">
+        <div class="chat__message">
+          <p>
+            Запускаємо курс з арбітражу трафіку! Отримайте цінні знання від
+            експертів. Поглиблене вивчення сучасних стратегій.
+          </p>
+          <span class="currentTime"></span>
+        </div>
+        <div class="chat__message">
+          <p>
+            Приєднуйтесь до нашого нового курсу! Інтерактивні заняття, практичні
+            завдання, сертифікат. Відмінна можливість підвищити кваліфікацію.
+          </p>
+          <span class="currentTime"></span>
+        </div>
+        <div class="chat__message">
+          <p>
+            Учасники отримають доступ до ексклюзивних матеріалів, консультацій
+            та мережі контактів. Вивчайте нові тенденції арбітражу трафіку.
+          </p>
+          <span class="currentTime"></span>
+        </div>
+        <div class="chat__message"><p>Хочете дізнатися більше?</p></div>
+        <div class="chat__button__wraper" id="step1">
+          <button class="chat__button" onclick="handleResponse('Так', 1)">
+            Так
+          </button>
+          <button class="chat__button" onclick="handleResponse('Ні', 1)">
+            Ні
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="render.js"></script>
+    <script src="main.js"></script>
+    <script src="time.js"></script>
   </body>
 </html>

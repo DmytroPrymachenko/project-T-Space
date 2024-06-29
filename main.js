@@ -1,24 +1,65 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+const userData = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  timeCommitment: "",
+  interestInArbitrage: "",
+};
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+let currentStep = 1;
 
-setupCounter(document.querySelector('#counter'))
+function handleResponse(response, step) {
+  if (step < currentStep) {
+    return;
+  }
+
+  if (currentStep === 1) {
+    if (response === "Ні") {
+      renderMessage("Дякую за вашу відповідь, чекаємо на ваше повернення");
+      return;
+    }
+  }
+
+  currentStep++;
+
+  if (currentStep === 2) {
+    renderMessage("Чи був у вас досвід пов'язаний із Арбітражем трафіку?");
+    renderButtons(2, [
+      { text: "Так", response: "Так" },
+      { text: "Ні", response: "Ні" },
+      { text: "Чув про це", response: "Чув про це" },
+    ]);
+  }
+
+  if (currentStep === 3) {
+    userData.interestInArbitrage = response;
+    renderMessage("Скільки часу ви могли б приділяти на день?");
+    renderButtons(3, [
+      { text: "Одна година", response: "Одна година" },
+      { text: "2-3 години", response: "2-3 години" },
+      { text: "5 і більше", response: "5 і більше" },
+    ]);
+  }
+
+  if (currentStep === 4) {
+    userData.timeCommitment = response;
+    renderMessage(
+      "Дякую! Наша компанія дуже зацікавлена ​​вами, для подальшої підтримки зв'язку, будь ласка, заповніть форму."
+    );
+    renderForm();
+  }
+}
+
+function submitForm(event) {
+  event.preventDefault();
+
+  userData.firstName = document.getElementById("firstName").value;
+  userData.lastName = document.getElementById("lastName").value;
+  userData.email = document.getElementById("email").value;
+  userData.phone = document.getElementById("phone").value;
+
+  console.log(userData);
+  localStorage.setItem("userData", JSON.stringify(userData));
+  window.location.href = "./success/success.html";
+}
