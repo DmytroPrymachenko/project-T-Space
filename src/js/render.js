@@ -1,14 +1,10 @@
-const currentTime = `
-   <span class="currentTime"></span>`;
-
 const tailChat = `
-  <img
+  <img 
     src="./images/svg/tailChat.svg"
     alt="T-Space check"
-    class="chat__header-img"
+    class="tail"
   />`;
 
-// Рендер початкових повідомлень
 document.addEventListener("DOMContentLoaded", () => {
   renderInitialMessages();
 });
@@ -28,7 +24,7 @@ function renderInitialMessages() {
       chatContainer.innerHTML += `
         <div class="chat__message">
           <p>${message}</p>
-          ${currentTime}
+         ${currentTime()}
           ${tailChat}
         </div>`;
 
@@ -46,7 +42,7 @@ function renderAnswer(message) {
   const chatContainer = document.getElementById("chatContainer");
   chatContainer.innerHTML += `<div class="chat__message">
   <p>${message}</p>
-  <span class="currentTime"></span>
+   ${currentTime()}
   ${tailChat}
   </div>`;
 }
@@ -55,7 +51,8 @@ function renderMessage(message) {
   const chatContainer = document.getElementById("chatContainer");
   chatContainer.innerHTML += `<div class="chat__message">
   <p>${message}</p>
-  ${currentTime}
+  ${currentTime()}
+   ${tailChat}
   </div>`;
 }
 
