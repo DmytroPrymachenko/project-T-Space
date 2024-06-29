@@ -18,49 +18,73 @@ function renderInitialMessages() {
   ];
 
   const chatContainer = document.getElementById("chatContainer");
-
+  // Почакові повідомлення
   messages.forEach((message, index) => {
     setTimeout(() => {
-      chatContainer.innerHTML += `
-        <div class="chat__message">
-          <p>${message}</p>
-         ${currentTime()}
-          ${tailChat}
-        </div>`;
+      const chatMessage = document.createElement("div");
+      chatMessage.classList.add("chat__message");
+      chatMessage.innerHTML = `
+        <p>${message}</p>
+        ${currentTime()}
+        ${tailChat}
+      `;
+      chatContainer.appendChild(chatMessage);
+      setTimeout(() => {
+        chatMessage.classList.add("visible");
+      }, 100);
 
       if (index === messages.length - 1) {
-        renderButtons(1, [
-          { text: "Так", response: "Так" },
-          { text: "Ні", response: "Ні" },
-        ]);
+        setTimeout(() => {
+          renderButtons(1, [
+            { text: "Так", response: "Так" },
+            { text: "Ні", response: "Ні" },
+          ]);
+        }, 1000);
       }
     }, index * 1000);
   });
 }
-// Рендер повідомлень після відповідей
+// Відповіді
 function renderAnswer(message) {
   const chatContainer = document.getElementById("chatContainer");
-  chatContainer.innerHTML += `<div class="answer">
-  <div class="chat__message ">
-  <p>${message}</p>
-   ${currentTime()}
-   
-   ${tailChat}
-  
+  setTimeout(() => {
+    const chatMessage = document.createElement("div");
+    chatMessage.classList.add("answer");
+    chatMessage.innerHTML = `<div class="chat__message">
+    <p>${message}</p>
+    ${currentTime()}
+    ${tailChat}
+    </div>
+  `;
+    chatContainer.appendChild(chatMessage);
 
-  </div>
-  </div>`;
+    const innerChatMessage = chatMessage.querySelector(".chat__message");
+
+    setTimeout(() => {
+      innerChatMessage.classList.add("visible");
+    }, 100);
+  }, 100);
 }
-
+// Питання
 function renderMessage(message) {
   const chatContainer = document.getElementById("chatContainer");
-  chatContainer.innerHTML += `<div class="chat__message">
-  <p>${message}</p>
-  ${currentTime()}
-   ${tailChat}
-  </div>`;
-}
+  setTimeout(() => {
+    const chatMessage = document.createElement("div");
+    chatMessage.classList.add("chat__message");
+    chatMessage.innerHTML = `
+    <p>${message}</p>
+    ${currentTime()}
+    ${tailChat}
+  `;
 
+    chatContainer.appendChild(chatMessage);
+
+    setTimeout(() => {
+      chatMessage.classList.add("visible");
+    }, 100);
+  }, 100);
+}
+// Кнопки
 function renderButtons(step, buttons) {
   const chatContainer = document.getElementById("chatContainer");
   let buttonsHtml = `<div class="chat__button__wraper" id="step${step}">`;
@@ -71,12 +95,13 @@ function renderButtons(step, buttons) {
   chatContainer.innerHTML += buttonsHtml;
 
   requestAnimationFrame(() => {
-    document
-      .getElementById(`step${step}`)
-      .classList.add("chat__button__wraper--visible");
+    const stepElement = document.getElementById(`step${step}`);
+    setTimeout(() => {
+      stepElement.classList.add("chat__button__wraper--visible");
+    }, 100);
   });
 }
-
+// Форма
 function renderForm() {
   const chatContainer = document.getElementById("chatContainer");
   chatContainer.innerHTML += `

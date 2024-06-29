@@ -1,7 +1,7 @@
 @import "modern-normalize/modern-normalize.css";
 
 body {
-  background-color: #f7f8fa;
+  background-color: #000000;
   color: #1d1e21;
   font-family: Gilroy;
   font-size: 16px;
@@ -75,7 +75,7 @@ input {
 .chat__button__wraper {
   opacity: 0;
   transform: translateX(100%);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 1s ease, transform 0.5s ease;
 }
 
 .chat__button__wraper--visible {
@@ -100,7 +100,7 @@ input {
   justify-content: flex-end;
 }
 
-.message__animation {
+/* .message__animation {
   opacity: 0;
   transform: translateX(100%);
   transition: opacity 0.5s, transform 0.5s;
@@ -109,7 +109,7 @@ input {
 .message__animation--visible {
   opacity: 1;
   transform: translateX(0);
-}
+} */
 .answer {
   width: 100%;
   display: flex;
@@ -119,4 +119,12 @@ input {
 .answer .tail {
   transform: scaleX(-1);
   left: 48px;
+}
+.chat__message {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.chat__message.visible {
+  opacity: 1;
 }

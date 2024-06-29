@@ -9,6 +9,10 @@ const userData = {
 
 let currentStep = 1;
 
+function setWithDelay(callback, delay) {
+  setTimeout(callback, delay);
+}
+
 function handleResponse(response, step) {
   if (step < currentStep) {
     return;
@@ -16,8 +20,13 @@ function handleResponse(response, step) {
 
   if (currentStep === 1) {
     if (response === "Ні") {
-      renderAnswer(response);
-      renderMessage("Дякую за вашу відповідь, чекаємо на ваше повернення");
+      setWithDelay(() => renderAnswer(response), 100);
+      setWithDelay(
+        () =>
+          renderMessage("Дякую за вашу відповідь, чекаємо на ваше повернення"),
+        1000
+      );
+
       return;
     }
   }
@@ -25,33 +34,52 @@ function handleResponse(response, step) {
   currentStep++;
 
   if (currentStep === 2) {
-    renderAnswer(response);
-    renderMessage("Чи був у вас досвід пов'язаний із Арбітражем трафіку?");
-    renderButtons(2, [
-      { text: "Так", response: "Так" },
-      { text: "Ні", response: "Ні" },
-      { text: "Чув про це", response: "Чув про це" },
-    ]);
+    setWithDelay(() => renderAnswer(response), 100);
+    setWithDelay(
+      () =>
+        renderMessage("Чи був у вас досвід пов'язаний із Арбітражем трафіку?"),
+      1000
+    );
+    setWithDelay(
+      () =>
+        renderButtons(2, [
+          { text: "Так", response: "Так" },
+          { text: "Ні", response: "Ні" },
+          { text: "Чув про це", response: "Чув про це" },
+        ]),
+      2000
+    );
   }
 
   if (currentStep === 3) {
     userData.interestInArbitrage = response;
-    renderAnswer(response);
-    renderMessage("Скільки часу ви могли б приділяти на день?");
-    renderButtons(3, [
-      { text: "Одна година", response: "Одна година" },
-      { text: "2-3 години", response: "2-3 години" },
-      { text: "5 і більше", response: "5 і більше" },
-    ]);
+    setWithDelay(() => renderAnswer(response), 100);
+    setWithDelay(
+      () => renderMessage("Скільки часу ви могли б приділяти на день?"),
+      1000
+    );
+    setWithDelay(
+      () =>
+        renderButtons(3, [
+          { text: "Одна година", response: "Одна година" },
+          { text: "2-3 години", response: "2-3 години" },
+          { text: "5 і більше", response: "5 і більше" },
+        ]),
+      2000
+    );
   }
 
   if (currentStep === 4) {
     userData.timeCommitment = response;
-    renderAnswer(response);
-    renderMessage(
-      "Дякую! Наша компанія дуже зацікавлена ​​вами, для подальшої підтримки зв'язку, будь ласка, заповніть форму."
+    setWithDelay(() => renderAnswer(response), 100);
+    setWithDelay(
+      () =>
+        renderMessage(
+          "Дякую! Наша компанія дуже зацікавлена ​​вами, для подальшої підтримки зв'язку, будь ласка, заповніть форму."
+        ),
+      1000
     );
-    renderForm();
+    setWithDelay(() => renderForm(), 2000);
   }
 }
 
