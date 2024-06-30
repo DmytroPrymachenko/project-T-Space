@@ -21,7 +21,7 @@ function formValidate() {
       firstNameError.textContent = "Ім'я не може бути більше 13 символів";
     } else {
       firstNameError.classList.add("message-true");
-      firstNameError.textContent = "Ваше ім'я Супер";
+      firstNameError.textContent = "Ваше ім'я просто чарівне!";
     }
   });
 
@@ -36,7 +36,7 @@ function formValidate() {
       lastNameError.textContent = "Прізвище не може бути більше 13 символів";
     } else {
       lastNameError.classList.add("message-true");
-      lastNameError.textContent = "Ваше прізвище Супер";
+      lastNameError.textContent = "Ваше прізвище вражає!";
     }
   });
   document.getElementById("email").addEventListener("input", function () {
@@ -47,7 +47,7 @@ function formValidate() {
       emailError.textContent = "Введіть коректну адресу електронної пошти";
     } else {
       emailError.classList.add("message-true");
-      emailError.textContent = "Почта ідеальна";
+      emailError.textContent = "Ваша електронна адреса бездоганна!";
     }
   });
 
@@ -65,7 +65,7 @@ function formValidate() {
     } else {
       phoneInput.value = trimmedValue;
       phoneError.classList.add("message-true");
-      phoneError.textContent = "Ваш номер телефону Супер";
+      phoneError.textContent = "Ваш номер телефону просто чудовий!";
     }
   });
 }
