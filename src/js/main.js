@@ -5,6 +5,7 @@ const userData = {
   phone: "",
   timeCommitment: "",
   interestInArbitrage: "",
+  clientMessage: [],
 };
 
 let currentStep = 1;
