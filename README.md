@@ -90,4 +90,4 @@ Thank you for using our T-Space Chat! We look forward to helping you reach new h
 
 ---
 
-**Made with ❤️ by Your Company**
+**Made with ❤️ by T-Space**
