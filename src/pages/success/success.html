@@ -24,9 +24,9 @@
           <div class="header__wrap">
             <div class="header__back">
               <img src="../../images/svg/arrow.svg" alt="back arrow" />
-              <div class="header__notification">
-                <span>4</span>
-              </div>
+              <button class="header__notification" id="backButton">
+                <span>5</span>
+              </button>
             </div>
             <div class="header__content">
               <div class="header__title-container">
@@ -54,7 +54,7 @@
       </main>
       <footer class="footer">
         <div class="footer__container">
-          <form class="footer__form">
+          <form class="footer__form" id="footerForm">
             <button
               type="button"
               class="footer__button__document"
@@ -67,6 +67,7 @@
                 type="text"
                 placeholder="Повідомлення"
                 class="footer__input__text"
+                id="footerInput"
               />
               <button class="footer__button__emoji">
                 <img src="../../images/svg/butonEmoji.svg" alt="buton emoji" />

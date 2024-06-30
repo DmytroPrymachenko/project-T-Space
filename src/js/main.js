@@ -98,6 +98,6 @@ function submitForm(event) {
 }
 
 function scrollToBottom() {
-  const chatContainer = document.getElementById("chatContainer");
+  const chatContainer = document.querySelector(".chat__container");
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }

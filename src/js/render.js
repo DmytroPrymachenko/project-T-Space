@@ -52,7 +52,7 @@ function renderInitialMessages() {
 }
 // Відповіді
 function renderAnswer(message) {
-  const chatContainer = document.getElementById("chatContainer");
+  const chatContainer = document.querySelector(".chat__container");
   setTimeout(() => {
     const chatMessage = document.createElement("div");
     chatMessage.classList.add("answer");
@@ -75,7 +75,7 @@ function renderAnswer(message) {
 }
 // Питання
 function renderMessage(message) {
-  const chatContainer = document.getElementById("chatContainer");
+  const chatContainer = document.querySelector(".chat__container");
   setTimeout(() => {
     const chatMessage = document.createElement("div");
     chatMessage.classList.add(
