@@ -12,7 +12,10 @@ function renderSuccessMessages() {
 
   let interviewString = "";
   const interview = data?.interestInArbitrage;
-  if (interview === "Так") {
+  if (interview === undefined) {
+    navigateToHomePage();
+    return;
+  } else if (interview === "Так") {
     interviewString = "Відмінно, що у вас є досвід в арбітражі трафіку!";
   } else if (interview === "Ні") {
     interviewString =
@@ -69,7 +72,9 @@ document.addEventListener("DOMContentLoaded", renderSuccessMessages);
 document.addEventListener("DOMContentLoaded", function () {
   const backButton = document.getElementById("backButton");
 
-  backButton.addEventListener("click", function () {
-    window.location.href = "/";
-  });
+  backButton.addEventListener("click", navigateToHomePage);
 });
+
+function navigateToHomePage() {
+  window.location.href = "/";
+}
