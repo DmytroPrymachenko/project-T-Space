@@ -9,6 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
   renderInitialMessages();
 });
 
+function renderTime() {
+  const timeToday = document.createElement("div");
+  timeToday.classList.add("chat__time__wraper");
+  timeToday.innerHTML = `
+    <div class="chat__time__container"><p>Сьогодні</p></div>
+    
+  `;
+  chatContainer.appendChild(timeToday);
+}
+
 function renderInitialMessages() {
   const messages = [
     "Запускаємо курс з арбітражу трафіку! Отримайте цінні знання від експертів. Поглиблене вивчення сучасних стратегій.",
@@ -20,6 +30,8 @@ function renderInitialMessages() {
   const chatContainer = document.getElementById("chatContainer");
   // Почакові повідомлення
   if (chatContainer) {
+    renderTime();
+
     messages.forEach((message, index) => {
       setTimeout(() => {
         const chatMessage = document.createElement("div");

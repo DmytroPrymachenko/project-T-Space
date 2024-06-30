@@ -49,6 +49,8 @@ function renderSuccessMessages() {
 
   const successContainer = document.getElementById("successContainer");
   if (successContainer) {
+    renderTime();
+
     messages.forEach((message, index) => {
       setTimeout(() => {
         const chatMessage = document.createElement("div");

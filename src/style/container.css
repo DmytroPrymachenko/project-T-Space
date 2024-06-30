@@ -1,5 +1,12 @@
 @import "modern-normalize/modern-normalize.css";
 
+@font-face {
+  font-family: "SFProText-Medium";
+  src: url("./fonts/FontsFree-Net-SFProText-Medium.ttf") format("truetype");
+  /* font-weight: 500; */
+  font-style: normal;
+}
+
 body {
   width: 100%;
 
@@ -9,9 +16,10 @@ body {
   background-position: center;
   background-color: #000000;
   color: #1d1e21;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 16px;
+  font-family: "SFProText-Medium", "Times New Roman", Times, serif;
+  font-size: 14px;
   font-weight: 400;
+  line-height: 1.2em;
   display: flex;
   align-items: center;
   height: 100vh;
@@ -49,6 +57,7 @@ button {
   margin: 0;
   border: none;
   background-color: transparent;
+  white-space: nowrap;
 }
 input {
   outline: none;
