@@ -52,7 +52,7 @@ function renderSuccessMessages() {
     messages.forEach((message, index) => {
       setTimeout(() => {
         const chatMessage = document.createElement("div");
-        chatMessage.classList.add("chat__message");
+        chatMessage.classList.add("chat__message ", "visible__off");
         chatMessage.innerHTML = `
         <p>${message}</p>
         ${currentTime()}
@@ -60,7 +60,7 @@ function renderSuccessMessages() {
       `;
         successContainer.appendChild(chatMessage);
         setTimeout(() => {
-          chatMessage.classList.add("visible");
+          chatMessage.classList.add("visible__on");
         }, 100);
       }, index * 1000);
     });
@@ -76,5 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function navigateToHomePage() {
-  window.location.href = "/project-T-Space/";
+  window.location.href = "/project-T-Space/"; // перехід на Git Hub
+
+  // window.location.href = "/"; перехід локально.
 }

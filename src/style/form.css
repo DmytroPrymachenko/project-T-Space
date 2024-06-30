@@ -10,13 +10,6 @@
   padding: 20px 10px;
   background-color: rgba(3, 13, 49, 1);
   opacity: 0;
-  transform: translateX(100%);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.chat__form__animate {
-  opacity: 1;
-  transform: translateX(0%);
 }
 
 .chat__form__input {

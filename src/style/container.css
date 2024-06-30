@@ -95,3 +95,14 @@ input {
 .animation__button:active {
   transform: scale(0.98);
 }
+.visible__off {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.3s ease,
+    transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  will-change: opacity, transform;
+}
+.visible__off.visible__on {
+  opacity: 1;
+  transform: translateY(0);
+}

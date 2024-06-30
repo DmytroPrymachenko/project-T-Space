@@ -23,7 +23,7 @@ function renderInitialMessages() {
     messages.forEach((message, index) => {
       setTimeout(() => {
         const chatMessage = document.createElement("div");
-        chatMessage.classList.add("chat__message");
+        chatMessage.classList.add("chat__message", "visible__off");
         chatMessage.innerHTML = `
         <p>${message}</p>
         ${currentTime()}
@@ -31,7 +31,7 @@ function renderInitialMessages() {
       `;
         chatContainer.appendChild(chatMessage);
         setTimeout(() => {
-          chatMessage.classList.add("visible");
+          chatMessage.classList.add("visible__on");
         }, 100);
 
         if (index === messages.length - 1) {
@@ -52,7 +52,7 @@ function renderAnswer(message) {
   setTimeout(() => {
     const chatMessage = document.createElement("div");
     chatMessage.classList.add("answer");
-    chatMessage.innerHTML = `<div class="chat__message">
+    chatMessage.innerHTML = `<div class="chat__message", "visible__off"">
     <p>${message}</p>
     <div class="answer__time">${currentTime()}
     ${tailChat}</div>
@@ -64,7 +64,7 @@ function renderAnswer(message) {
     const innerChatMessage = chatMessage.querySelector(".chat__message");
 
     setTimeout(() => {
-      innerChatMessage.classList.add("visible");
+      innerChatMessage.classList.add("visible__on");
       scrollToBottom();
     }, 100);
   }, 100);
@@ -74,7 +74,7 @@ function renderMessage(message) {
   const chatContainer = document.getElementById("chatContainer");
   setTimeout(() => {
     const chatMessage = document.createElement("div");
-    chatMessage.classList.add("chat__message");
+    chatMessage.classList.add("chat__message", "visible__off");
     chatMessage.innerHTML = `
     <p>${message}</p>
     ${currentTime()}
@@ -84,7 +84,7 @@ function renderMessage(message) {
     chatContainer.appendChild(chatMessage);
 
     setTimeout(() => {
-      chatMessage.classList.add("visible");
+      chatMessage.classList.add("visible__on");
       scrollToBottom();
     }, 100);
   }, 100);
@@ -92,7 +92,7 @@ function renderMessage(message) {
 // Кнопки
 function renderButtons(step, buttons) {
   const chatContainer = document.getElementById("chatContainer");
-  let buttonsHtml = `<div class="chat__button__wraper" id="step${step}">`;
+  let buttonsHtml = `<div class="chat__button__wraper visible__off" id="step${step}">`;
   buttons.forEach((button) => {
     buttonsHtml += `<button class="chat__button animation__button" onclick="handleResponse('${button.response}', ${step})">${button.text}</button>`;
   });
@@ -102,7 +102,7 @@ function renderButtons(step, buttons) {
   requestAnimationFrame(() => {
     const stepElement = document.getElementById(`step${step}`);
     setTimeout(() => {
-      stepElement.classList.add("chat__button__wraper--visible");
+      stepElement.classList.add("visible__on");
       scrollToBottom();
     }, 100);
   });
@@ -112,7 +112,7 @@ function renderForm() {
   const chatContainer = document.getElementById("chatContainer");
   setTimeout(() => {
     const formHtml = `
-    <form class="chat__form" onsubmit="submitForm(event)">
+    <form class="chat__form visible__off" onsubmit="submitForm(event)">
       <input class="chat__form__input" type="text" id="firstName" placeholder="Ім'я" required pattern=".{2,13}">
       <div id="firstNameError" class="error-message"></div>
       <input class="chat__form__input" type="text" id="lastName" placeholder="Прізвище" required pattern=".{2,13}">
@@ -133,7 +133,7 @@ function renderForm() {
 
     scrollToBottom();
     setTimeout(() => {
-      formElement.classList.add("chat__form__animate");
+      formElement.classList.add("visible__on");
       scrollToBottom();
     }, 100);
   }, 100);
