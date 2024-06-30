@@ -1,4 +1,4 @@
-.chat__header {
+.header {
   width: 100%;
   padding: 17px 20px 16px 20px;
   background: #262626;
@@ -6,4 +6,68 @@
   justify-content: center;
   display: flex;
   margin-bottom: 20px;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__title {
+  font-weight: 600;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.header__title-container {
+  display: flex;
+  gap: 5px;
+}
+.header__img {
+  width: 20px;
+}
+.header-text {
+  font-weight: 500;
+  font-size: 12px;
+  color: #6c768b;
+}
+.header__wrap-logo {
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  background: #0038ff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+}
+.header-logo {
+  width: 26px;
+  height: 26px;
+}
+.header__wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.header__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.header__notification {
+  border-radius: 20px;
+  width: 17px;
+  height: 17px;
+  background: #0038ff;
+
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }

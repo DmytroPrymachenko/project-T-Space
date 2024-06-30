@@ -3,10 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Success</title>
+    <link rel="stylesheet" href="../../style/style.css" />
   </head>
   <body>
-    <div>heloo</div>
+    <div class="container background">
+      <div class="background__planet"></div>
+      <div class="background-blur">
+        <div class="background-blur__pulse"></div>
+      </div>
+    </div>
+    <header class="header">
+      <div class="header__wrap">
+        <button class="header__back" id="backButton">
+          <img src="../../images/svg/arrow.svg" alt="back arrow" />
+          <div class="header__notification">
+            <span>5</span>
+          </div>
+        </button>
+
+        <div class="header__content">
+          <div class="header__title-container">
+            <span class="header__title">T-Space</span>
+            <img
+              src="../../images/svg/check.svg"
+              alt="T-Space check"
+              class="header__img"
+            />
+          </div>
+          <span class="header-text">бот</span>
+        </div>
+        <div class="header__wrap-logo">
+          <img
+            src="../../images/svg/logo.svg"
+            alt="T-Space check"
+            class="header-logo"
+          />
+        </div>
+      </div>
+    </header>
+    <main class="container">
+      <div class="success__container" id="successContainer"></div>
+    </main>
+
     <script src="../../js/user.js"></script>
+    <script src="../../js/success.js"></script>
+    <script src="../../js/render.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/time.js"></script>
+    <script src="../../js/formValidate.js"></script>
   </body>
 </html>

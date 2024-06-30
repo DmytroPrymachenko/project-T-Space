@@ -3,12 +3,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>T-Space</title>
     <link rel="stylesheet" href="./src/style/style.css" />
-    <link rel="stylesheet" href="./src/style/blur.css" />
-    <link rel="stylesheet" href="./src/style/header.css" />
-    <link rel="stylesheet" href="./src/style/chat.css" />
-    <link rel="stylesheet" href="./src/style/form.css" />
   </head>
   <body>
     <div class="container background">
@@ -17,33 +13,42 @@
         <div class="background-blur__pulse"></div>
       </div>
     </div>
-    <header class="chat__header">
-      <div class="container">
-        <div>
-          <div>
-            <span class="chat__header-title">T-Space</span>
+    <header class="header">
+      <div class="header__wrap">
+        <div class="header__back">
+          <img src="./src/images/svg/arrow.svg" alt="back arrow" />
+          <div class="header__notification">
+            <span>4</span>
+          </div>
+        </div>
+
+        <div class="header__content">
+          <div class="header__title-container">
+            <span class="header__title">T-Space</span>
             <img
-              src="./images/svg/check.svg"
+              src="./src/images/svg/check.svg"
               alt="T-Space check"
-              class="chat__header-img"
+              class="header__img"
             />
           </div>
-          <span class="chat__header-text">бот</span>
+          <span class="header-text">бот</span>
         </div>
-        <div>
+        <div class="header__wrap-logo">
           <img
-            src="./images/svg/logo.svg"
+            src="./src/images/svg/logo.svg"
             alt="T-Space check"
-            class="chat__header-logo"
+            class="header-logo"
           />
         </div>
       </div>
     </header>
-    <div class="container">
+    <main class="container">
       <div class="chat__container" id="chatContainer"></div>
-    </div>
+    </main>
+    <!-- <script src="./src/js/scripts.js"></script> -->
     <script src="./src/js/render.js"></script>
     <script src="./src/js/main.js"></script>
     <script src="./src/js/time.js"></script>
+    <script src="./src/js/formValidate.js"></script>
   </body>
 </html>

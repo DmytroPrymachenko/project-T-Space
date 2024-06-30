@@ -22,7 +22,10 @@
   font-weight: 500;
   font-size: 14px;
   color: #fff;
+  border: none;
+  cursor: pointer;
 }
+
 .chat__button__wraper {
   display: flex;
   gap: 10px;

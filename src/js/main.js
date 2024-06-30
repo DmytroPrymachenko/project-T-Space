@@ -95,3 +95,8 @@ function submitForm(event) {
   localStorage.setItem("userData", JSON.stringify(userData));
   window.location.href = "./src/pages/success/success.html";
 }
+
+function scrollToBottom() {
+  const chatContainer = document.getElementById("chatContainer");
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+}
