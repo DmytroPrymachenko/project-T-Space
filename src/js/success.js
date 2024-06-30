@@ -1,5 +1,9 @@
 const tailSuccess = `
-  `;
+  <img 
+    src="../../images/svg/tailChat.svg"
+    alt="T-Space check"
+    class="tail"
+  />`;
 
 function renderSuccessMessages() {
   const dataString = localStorage.getItem("userData");

@@ -1,6 +1,6 @@
 const tailChat = `
   <img 
-    src="../../src/images/svg/tailChat.svg"
+    src="./src/images/svg/tailChat.svg"
     alt="T-Space check"
     class="tail"
   />`;
