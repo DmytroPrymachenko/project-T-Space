@@ -1,0 +1,40 @@
+.footer {
+  width: 100%;
+  background: #262626;
+}
+.footer__container {
+  margin: 0 auto;
+  padding: 10px 10px 20px 10px;
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+
+  justify-content: space-between;
+}
+.footer__input__text {
+  width: 100%;
+}
+.footer__form {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  margin: 0 auto;
+}
+.footer__input__text {
+  border-radius: 30px;
+  padding: 10px 50px 10px 15px;
+  border: none;
+  background: #39393c;
+}
+.footer__input__wraper {
+  position: relative;
+  width: 100%;
+}
+.footer__button__emoji {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 10px;
+  top: 9px;
+}

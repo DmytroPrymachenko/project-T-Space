@@ -58,6 +58,7 @@ input {
 
   max-width: 550px;
   padding: 0px 10px 10px;
+  margin: 0 auto;
 }
 
 .background {
@@ -105,4 +106,19 @@ input {
 .visible__off.visible__on {
   opacity: 1;
   transform: translateY(0);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  flex-grow: 1;
+  overflow-y: auto;
+
+  margin: 0 auto;
 }

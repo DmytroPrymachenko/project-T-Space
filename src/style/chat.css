@@ -27,20 +27,26 @@
 }
 
 .chat__button__wraper {
+  width: 100%;
+  max-width: 315px;
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
 
 .chat__message {
-  min-width: 60px;
-  max-width: 460px;
+  min-width: 75px;
+
   position: relative;
   border-radius: 10px;
   padding: 6px 12px;
-  width: fit-content;
+
   background: #d9e4ff;
   margin-bottom: 10px;
+}
+.chat__message__text {
+  width: 100%;
+  max-width: 315px;
 }
 .tail {
   position: absolute;

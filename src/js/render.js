@@ -23,7 +23,11 @@ function renderInitialMessages() {
     messages.forEach((message, index) => {
       setTimeout(() => {
         const chatMessage = document.createElement("div");
-        chatMessage.classList.add("chat__message", "visible__off");
+        chatMessage.classList.add(
+          "chat__message",
+          "visible__off",
+          "chat__message__text"
+        );
         chatMessage.innerHTML = `
         <p>${message}</p>
         ${currentTime()}
@@ -52,7 +56,7 @@ function renderAnswer(message) {
   setTimeout(() => {
     const chatMessage = document.createElement("div");
     chatMessage.classList.add("answer");
-    chatMessage.innerHTML = `<div class="chat__message", "visible__off"">
+    chatMessage.innerHTML = `<div class="chat__message", "visible__off">
     <p>${message}</p>
     <div class="answer__time">${currentTime()}
     ${tailChat}</div>
@@ -74,7 +78,11 @@ function renderMessage(message) {
   const chatContainer = document.getElementById("chatContainer");
   setTimeout(() => {
     const chatMessage = document.createElement("div");
-    chatMessage.classList.add("chat__message", "visible__off");
+    chatMessage.classList.add(
+      "chat__message",
+      "visible__off",
+      "chat__message__text"
+    );
     chatMessage.innerHTML = `
     <p>${message}</p>
     ${currentTime()}
