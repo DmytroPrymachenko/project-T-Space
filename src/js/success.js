@@ -76,5 +76,5 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function navigateToHomePage() {
-  window.location.href = "/";
+  window.location.href = "/project-T-Space/";
 }
