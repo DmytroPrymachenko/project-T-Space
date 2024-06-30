@@ -20,11 +20,23 @@
   margin: 0 auto;
 }
 .footer__input__text {
+  height: 40px;
   border-radius: 30px;
   padding: 10px 50px 10px 15px;
   border: none;
   background: #39393c;
+  color: #fff;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
+
+.footer__input__text:focus {
+  border: 2px solid #4c74af;
+  background-color: #2e2e30;
+  box-shadow: 0 0 10px rgba(76, 83, 175, 0.5);
+  outline: none;
+}
+
 .footer__input__wraper {
   position: relative;
   width: 100%;

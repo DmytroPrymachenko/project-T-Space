@@ -9,14 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
   renderInitialMessages();
 });
 
-function renderTime() {
+function renderTime(container) {
   const timeToday = document.createElement("div");
   timeToday.classList.add("chat__time__wraper");
   timeToday.innerHTML = `
     <div class="chat__time__container"><p>Сьогодні</p></div>
     
   `;
-  chatContainer.appendChild(timeToday);
+  container.appendChild(timeToday);
 }
 
 function renderInitialMessages() {
@@ -30,7 +30,7 @@ function renderInitialMessages() {
   const chatContainer = document.getElementById("chatContainer");
   // Почакові повідомлення
   if (chatContainer) {
-    renderTime();
+    renderTime(chatContainer);
 
     messages.forEach((message, index) => {
       setTimeout(() => {
@@ -65,19 +65,31 @@ function renderInitialMessages() {
 // Відповіді
 function renderAnswer(message) {
   const chatContainer = document.querySelector(".chat__container");
+  if (!chatContainer) {
+    console.error("chatContainer not found");
+    return;
+  }
+
   setTimeout(() => {
     const chatMessage = document.createElement("div");
     chatMessage.classList.add("answer");
-    chatMessage.innerHTML = `<div class="chat__message", "visible__off">
-    <p>${message}</p>
-    <div class="answer__time">${currentTime()}
-    ${tailChat}</div>
-  
-    </div>
-  `;
+    chatMessage.innerHTML = `
+      <div class="chat__message visible__off">
+        <p>${message}</p>
+        <div class="answer__time">
+          ${currentTime()}
+          ${tailChat}
+        </div>
+      </div>
+    `;
     chatContainer.appendChild(chatMessage);
 
     const innerChatMessage = chatMessage.querySelector(".chat__message");
+
+    if (!innerChatMessage) {
+      console.error("innerChatMessage not found");
+      return;
+    }
 
     setTimeout(() => {
       innerChatMessage.classList.add("visible__on");
@@ -112,6 +124,11 @@ function renderMessage(message) {
 // Кнопки
 function renderButtons(step, buttons) {
   const chatContainer = document.getElementById("chatContainer");
+  if (!chatContainer) {
+    console.error("chatContainer not found");
+    return;
+  }
+
   let buttonsHtml = `<div class="chat__button__wraper visible__off" id="step${step}">`;
   buttons.forEach((button) => {
     buttonsHtml += `<button class="chat__button animation__button" onclick="handleResponse('${button.response}', ${step})">${button.text}</button>`;
@@ -121,6 +138,11 @@ function renderButtons(step, buttons) {
 
   requestAnimationFrame(() => {
     const stepElement = document.getElementById(`step${step}`);
+    if (!stepElement) {
+      console.error(`Step element with id step${step} not found`);
+      return;
+    }
+
     setTimeout(() => {
       stepElement.classList.add("visible__on");
       scrollToBottom();

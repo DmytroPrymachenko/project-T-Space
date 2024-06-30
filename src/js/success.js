@@ -49,7 +49,7 @@ function renderSuccessMessages() {
 
   const successContainer = document.getElementById("successContainer");
   if (successContainer) {
-    renderTime();
+    renderTime(successContainer);
 
     messages.forEach((message, index) => {
       setTimeout(() => {
