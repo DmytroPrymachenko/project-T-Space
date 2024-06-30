@@ -9,6 +9,7 @@ function formValidate() {
       phoneInput.value = "+380";
     }
   });
+
   document.getElementById("firstName").addEventListener("input", function () {
     const firstName = document.getElementById("firstName");
     const firstNameError = document.getElementById("firstNameError");
