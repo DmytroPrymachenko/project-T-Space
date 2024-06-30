@@ -10,6 +10,7 @@
   padding: 20px 10px;
   background-color: rgba(3, 13, 49, 1);
   opacity: 0;
+  margin-bottom: 80px;
 }
 
 .chat__form__input {

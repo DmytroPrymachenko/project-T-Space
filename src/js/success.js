@@ -52,7 +52,7 @@ function renderSuccessMessages() {
     messages.forEach((message, index) => {
       setTimeout(() => {
         const chatMessage = document.createElement("div");
-        chatMessage.classList.add("chat__message ", "visible__off");
+        chatMessage.classList.add("chat__message", "visible__off");
         chatMessage.innerHTML = `
         <p>${message}</p>
         ${currentTime()}
