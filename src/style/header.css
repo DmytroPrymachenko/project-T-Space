@@ -10,7 +10,7 @@
 .header__container {
   padding: 17px 20px 16px 20px;
   width: 100%;
-  max-width: 550px;
+  max-width: 510px;
 }
 .header__content {
   display: flex;
