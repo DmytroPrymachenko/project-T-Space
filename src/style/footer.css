@@ -20,7 +20,8 @@
   margin: 0 auto;
 }
 .footer__input__text {
-  height: 40px;
+  /* height: 40px; */
+  width: -webkit-fill-available;
   border-radius: 30px;
   padding: 10px 50px 10px 15px;
   border: none;
@@ -47,5 +48,5 @@
   align-items: center;
   justify-content: center;
   right: 10px;
-  top: 9px;
+  top: 8px;
 }
