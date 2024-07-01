@@ -1,6 +1,7 @@
 .header {
   width: 100%;
-
+  position: fixed;
+  z-index: 999;
   background: #262626;
   color: FFFFFF;
   justify-content: center;
@@ -53,6 +54,7 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 .header__back {
   display: flex;
